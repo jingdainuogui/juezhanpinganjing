@@ -4,7 +4,8 @@ on:
   schedule:
     - cron: "0 */6 * * *"   # 每6小时跑一次
   workflow_dispatch:        # 允许手动触发
-
+permissions:
+  contents: write
 jobs:
   update:
     runs-on: windows-latest
@@ -21,8 +22,8 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add data/fans.json
           git add data/fans.js
