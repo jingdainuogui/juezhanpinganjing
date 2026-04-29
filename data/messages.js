@@ -1,0 +1,22 @@
+window.MESSAGE_SEEDS = [
+  {
+    author: "Night Visitor",
+    time: "2026-04-28",
+    content: "This homepage feels like a cyber shrine entry. The atmosphere is strong and easy to remember.",
+    replies: [
+      {
+        content: "Thanks. More gallery and portfolio content will be added in the same visual language."
+      }
+    ]
+  },
+  {
+    author: "Glow Traveler",
+    time: "2026-04-27",
+    content: "The motion and image treatment feel polished. Looking forward to seeing more work here.",
+    replies: [
+      {
+        content: "Appreciated. The portfolio page will continue this style when it is added."
+      }
+    ]
+  }
+];

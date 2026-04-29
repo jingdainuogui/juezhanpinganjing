@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>式神图鉴</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="scene">
+    <div class="bg-layer" data-bg-layer></div>
+    <div class="energy-ribbon"></div>
+
+    <div class="page-shell">
+      <header class="mx-auto w-full max-w-7xl hidden-until-ready">
+        <nav class="glass-nav ml-auto flex w-fit items-center gap-4 rounded-full px-5 py-3 text-sm md:gap-6 md:px-7 md:text-[15px]">
+          <a href="index.html" class="nav-link font-tech">首页</a>
+          <a href="portfolio.html" class="nav-link font-tech">作品集</a>
+          <a href="shikigami.html" class="nav-link is-active font-tech">式神图鉴</a>
+          <a href="contact.html" class="nav-link font-tech">联系我</a>
+        </nav>
+      </header>
+
+      <main class="mx-auto mt-8 w-full max-w-7xl md:mt-10">
+        <section class="glass-card section-shell hidden-until-ready w-full">
+          <div class="section-frame"></div>
+          <div class="ornament left"></div>
+          <div class="ornament right"></div>
+
+          <div class="relative z-10 px-2 py-3 md:px-4 md:py-4">
+            <div class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p class="font-tech text-xs uppercase tracking-[0.42em] text-cyan-100/64">Shikigami Atlas</p>
+                <h1 class="hero-title font-tech mt-3 text-3xl font-extrabold md:text-5xl">式神图鉴</h1>
+                <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-200/78 md:text-base">
+                  这里收录了来自平安京世界的珍贵瞬间。每一张图片都源自官方微博的精选记录。悬浮预览捕捉细节，点击进入沉浸式赏析。向下滚动，与我们一同重温那些式神的高光时刻。
+                </p>
+              </div>
+              <div class="glass-panel rounded-[24px] px-5 py-4 text-sm text-slate-200/76">
+                <div class="font-tech text-xs uppercase tracking-[0.3em] text-cyan-100/62">Gallery</div>
+                <div class="mt-2">百绘罗衣 / 同人插画 / 式神表情包</div>
+              </div>
+            </div>
+
+            <div id="galleryGrid" class="gallery-columns"></div>
+            <div id="gallerySentinel" class="mx-auto mt-4 rounded-full border border-white/12 bg-white/6 px-5 py-3 text-center text-sm text-slate-200/70">
+              正在召唤更多式神素材...
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <div class="glass-card lightbox-panel image-lightbox-panel">
+      <button id="lightboxClose" type="button" class="ghost-button lightbox-close rounded-full px-4 py-2 text-sm text-white">关闭</button>
+      <div class="mb-4 pl-2 pr-16 pt-2">
+        <div class="font-tech text-xs uppercase tracking-[0.36em] text-cyan-100/62">View Mode</div>
+        <h2 id="lightboxTitle" class="mt-2 text-xl text-white">式神图鉴</h2>
+      </div>
+      <img id="lightboxImage" class="lightbox-image" alt="式神放大图" />
+    </div>
+  </div>
+
+  <script src="data/gallery.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

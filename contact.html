@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>联系我</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="scene">
+    <div class="bg-layer" data-bg-layer></div>
+    <div class="energy-ribbon"></div>
+
+    <div class="page-shell">
+      <header class="mx-auto w-full max-w-7xl hidden-until-ready">
+        <nav class="glass-nav ml-auto flex w-fit items-center gap-4 rounded-full px-5 py-3 text-sm md:gap-6 md:px-7 md:text-[15px]">
+          <a href="index.html" class="nav-link font-tech">首页</a>
+          <a href="portfolio.html" class="nav-link font-tech">作品集</a>
+          <a href="shikigami.html" class="nav-link font-tech">式神图鉴</a>
+          <a href="contact.html" class="nav-link is-active font-tech">联系我</a>
+        </nav>
+      </header>
+
+      <main class="mx-auto mt-8 w-full max-w-7xl md:mt-10">
+        <section class="glass-card section-shell hidden-until-ready w-full">
+          <div class="section-frame"></div>
+          <div class="ornament left"></div>
+          <div class="ornament right"></div>
+
+          <div class="relative z-10 grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+            <div class="flex flex-col gap-5">
+              <div class="glass-panel rounded-[28px] p-6 md:p-7">
+                <div class="flex items-center gap-4">
+                  <div class="social-icon">
+                    <svg viewBox="0 0 48 48" class="h-8 w-8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M24 9C15.716 9 9 14.495 9 21.273C9 25.317 11.412 28.905 15.141 31.125L13.5 37.5L19.97 33.98C21.261 34.266 22.605 34.417 24 34.417C32.284 34.417 39 28.922 39 22.143C39 15.365 32.284 9 24 9Z" fill="#EAFBFF" fill-opacity="0.95"/>
+                      <path d="M18.5 18.5H29.5" stroke="#60E7FF" stroke-width="2.3" stroke-linecap="round"/>
+                      <path d="M18.5 23.5H29.5" stroke="#FFD98C" stroke-width="2.3" stroke-linecap="round"/>
+                      <path d="M18.5 28.5H25.5" stroke="#FFB6D8" stroke-width="2.3" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-tech text-xs uppercase tracking-[0.36em] text-cyan-100/64">QQ Channel</p>
+                    <h1 class="mt-2 text-3xl font-semibold text-white">联系我</h1>
+                  </div>
+                </div>
+
+                <p class="mt-5 text-sm leading-7 text-slate-200/78 md:text-base">
+                  如果你是来约稿、交流设计、合作开发，或者只是想打个招呼，这里就是最直接的入口。
+                </p>
+
+                <div class="mt-6 rounded-[24px] border border-white/12 bg-[linear-gradient(145deg,rgba(8,19,38,0.66),rgba(16,31,58,0.48))] p-5">
+                  <div class="text-sm text-slate-200/72">QQ 号码</div>
+                  <div class="font-tech mt-2 text-3xl text-cyan-100 md:text-4xl">2409533154</div>
+                  <div class="mt-4 flex flex-wrap gap-3">
+                    <button id="copyQQ" type="button" class="cta-button rounded-full px-4 py-2 text-sm text-white">复制 QQ 号</button>
+                    <a href="tencent://message/?uin=2409533154" class="ghost-button rounded-full px-4 py-2 text-sm text-white">尝试唤起 QQ</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-5">
+              <div class="glass-panel rounded-[28px] p-6 md:p-7">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <p class="font-tech text-xs uppercase tracking-[0.36em] text-cyan-100/64">Message Board</p>
+                    <h2 class="mt-2 text-2xl font-semibold text-white">访客留言板</h2>
+                  </div>
+                  <span class="status-dot"></span>
+                </div>
+                <form id="messageForm" class="mt-6 grid gap-4">
+                  <input name="author" maxlength="20" class="message-input px-4 py-3 text-sm" placeholder="你的昵称（可留空）" />
+                  <textarea name="content" maxlength="240" class="message-textarea min-h-[140px] px-4 py-3 text-sm" placeholder="留下一句想说的话，灵讯会在这里被看见..."></textarea>
+                  <div class="flex justify-end">
+                    <button type="submit" class="cta-button rounded-full px-5 py-3 text-sm text-white">写入留言板</button>
+                  </div>
+                </form>
+              </div>
+
+              <div id="messageList" class="grid gap-4"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="data/supabase-config.js"></script>
+  <script src="data/messages.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

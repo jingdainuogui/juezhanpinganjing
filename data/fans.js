@@ -1,0 +1,1 @@
+﻿window.FANS_DATA = {"lastUpdated":"2026-04-29 16:33","platforms":{"bilibili":{"followers":321,"displayText":"321","source":"uid: 689060205"},"douyin":{"followers":60,"displayText":"60","source":"handle: xhcynjh","note":"fallback","secUid":"MS4wLjABAAAAN7_ojbX4gwxLwND8g08YulTwitH6n34NiV7yOtN5yQo","shareUrl":"https://v.douyin.com/4Tc5aBTnxho/"}}};

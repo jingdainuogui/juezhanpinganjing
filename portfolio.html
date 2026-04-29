@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>作品集</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="scene">
+    <div class="bg-layer" data-bg-layer></div>
+    <div class="energy-ribbon"></div>
+
+    <div class="page-shell">
+      <header class="mx-auto w-full max-w-7xl hidden-until-ready">
+        <nav class="glass-nav ml-auto flex w-fit items-center gap-4 rounded-full px-5 py-3 text-sm md:gap-6 md:px-7 md:text-[15px]">
+          <a href="index.html" class="nav-link font-tech">首页</a>
+          <a href="portfolio.html" class="nav-link is-active font-tech">作品集</a>
+          <a href="shikigami.html" class="nav-link font-tech">式神图鉴</a>
+          <a href="contact.html" class="nav-link font-tech">联系我</a>
+        </nav>
+      </header>
+
+      <main class="mx-auto mt-8 w-full max-w-7xl md:mt-10">
+        <section class="glass-card section-shell hidden-until-ready w-full">
+          <div class="section-frame"></div>
+          <div class="ornament left"></div>
+          <div class="ornament right"></div>
+
+          <div class="relative z-10 px-2 py-3 md:px-4 md:py-4">
+            <div class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p class="font-tech text-xs uppercase tracking-[0.42em] text-cyan-100/64">Portfolio Stream</p>
+                <h1 class="hero-title font-tech mt-3 text-3xl font-extrabold md:text-5xl">作品集</h1>
+                <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-200/78 md:text-base">
+                  翻到这一页，就像打开我的游戏日记。里面记着我在平安京的一些对局——有逆风翻盘的燃，有操作变形的糗，
+                  还有整蛊路人的皮。很开心能有这些视频承载我的回忆。
+                </p>
+              </div>
+              <div class="glass-panel rounded-[24px] px-5 py-4 text-sm text-slate-200/76">
+                <div class="font-tech text-xs uppercase tracking-[0.3em] text-cyan-100/62">Video Mode</div>
+                <div class="mt-2">对局录像 / 击杀集锦 / 娱乐搞怪</div>
+              </div>
+            </div>
+
+            <div id="portfolioGrid" class="portfolio-grid"></div>
+            <div id="portfolioSentinel" class="mx-auto mt-4 rounded-full border border-white/12 bg-white/6 px-5 py-3 text-center text-sm text-slate-200/70">
+              正在展开更多作品...
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="videoModal" class="lightbox">
+    <div class="glass-card lightbox-panel">
+      <button id="videoModalClose" type="button" class="ghost-button lightbox-close rounded-full px-4 py-2 text-sm text-white">关闭</button>
+      <div class="mb-4 pl-2 pr-16 pt-2">
+        <div class="font-tech text-xs uppercase tracking-[0.36em] text-cyan-100/62">Playback Mode</div>
+        <h2 id="videoTitle" class="mt-2 text-xl text-white">作品播放</h2>
+        <p id="videoMeta" class="mt-2 text-sm text-slate-200/72"></p>
+      </div>
+      <div class="video-player-shell">
+        <iframe
+          id="videoFrame"
+          allowfullscreen="true"
+          scrolling="no"
+          frameborder="0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          src=""
+        ></iframe>
+      </div>
+      <div class="video-modal-actions">
+        <a id="videoSourceLink" href="#" target="_blank" rel="noopener noreferrer" class="ghost-button rounded-full px-4 py-2 text-sm text-white">
+          去 B 站看高清原片
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/portfolio.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

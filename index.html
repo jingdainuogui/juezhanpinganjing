@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>别急等哥来救场</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <!-- Cloudflare Web Analytics -->
+</head>
+
+<body>
+  <div class="scene">
+    <div class="bg-layer" data-bg-layer></div>
+    <div class="energy-ribbon"></div>
+
+    <div class="page-shell">
+      <header class="mx-auto w-full max-w-7xl hidden-until-ready">
+        <nav
+          class="glass-nav ml-auto flex w-fit items-center gap-4 rounded-full px-5 py-3 text-sm md:gap-6 md:px-7 md:text-[15px]">
+          <a href="index.html" class="nav-link is-active font-tech">首页</a>
+          <a href="portfolio.html" class="nav-link font-tech">作品集</a>
+          <a href="shikigami.html" class="nav-link font-tech">式神图鉴</a>
+          <a href="contact.html" class="nav-link font-tech">联系我</a>
+        </nav>
+      </header>
+
+      <main class="mx-auto mt-8 flex min-h-[calc(100vh-96px)] w-full max-w-6xl items-center justify-center md:mt-10">
+        <section class="glass-card section-shell hidden-until-ready w-full">
+          <div class="section-frame"></div>
+          <div class="ornament left"></div>
+          <div class="ornament right"></div>
+
+          <div class="grid gap-8 xl:grid-cols-[1.08fr_0.92fr] xl:gap-10">
+            <div
+              class="hero-card relative flex flex-col items-center justify-center rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))] px-7 py-10 text-center shadow-inner shadow-white/5 md:px-10 md:py-12">
+              <div class="mb-6">
+                <div class="avatar-shell">
+                  <img src="avatar.jpg" alt="头像" class="h-36 w-36 rounded-full object-cover md:h-44 md:w-44" />
+                </div>
+              </div>
+
+              <p class="font-tech mb-3 text-xs uppercase tracking-[0.45em] text-cyan-100/65">Soul Signal Online</p>
+              <h1 class="hero-title font-tech text-3xl font-extrabold leading-tight md:text-5xl xl:text-6xl">
+                别急等哥来救场
+              </h1>
+              <div
+                class="rank-badge mt-5 inline-flex items-center gap-3 rounded-full px-5 py-2 text-sm text-amber-100 md:text-base">
+                <span class="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_12px_rgba(252,211,77,0.8)]"></span>
+                <span class="tracking-[0.24em]">大阴阳师之主</span>
+              </div>
+
+              <p class="mt-6 max-w-2xl text-sm leading-7 text-slate-200/82 md:text-base xl:max-w-3xl">
+                此界，由我所设。雾为障，光为阵，万象为符。<br class="hidden md:block" />
+                流动的能量，不过是结界呼吸的余波。你所踏入的，不是主页——而是“被允许观测的领域”。
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-5 md:gap-6">
+              <div class="countdown-ring">
+                <div class="countdown-inner px-6 py-6 md:px-7 md:py-7">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-tech text-xs uppercase tracking-[0.38em] text-cyan-100/65">Birthday Protocol</p>
+                      <h2 class="mt-2 text-xl font-semibold text-white md:text-2xl">生日倒计时</h2>
+                    </div>
+                    <div class="status-dot"></div>
+                  </div>
+
+                  <div class="mt-7 flex items-end gap-4">
+                    <div class="countdown-number font-tech text-6xl font-extrabold text-cyan-100 md:text-7xl"
+                      id="birthdayDays">--</div>
+                    <div class="pb-2 text-left text-sm leading-6 text-slate-200/78 md:text-base">
+                      <div>距离你的降临还有</div>
+                      <div class="text-cyan-100/95">May 07 / 灵力重启日</div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="mt-5 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200/78">
+                    <span id="birthdayLabel">正在校准下一次降临时间...</span>
+                    <span class="font-tech text-cyan-100/90" id="birthdayYear">----</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid gap-4 md:grid-cols-2">
+                <a href="https://space.bilibili.com/689060205" target="_blank" rel="noopener noreferrer"
+                  class="glass-social social-card rounded-[24px] border border-white/20 p-5">
+                  <div class="flex items-start justify-between gap-4">
+                    <div class="social-icon">
+                      <svg viewBox="0 0 48 48" class="h-8 w-8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path
+                          d="M15 15.5C15 12.4624 17.4624 10 20.5 10H27.5C30.5376 10 33 12.4624 33 15.5V16.5H35.2C37.2987 16.5 39 18.2013 39 20.3V29.7C39 31.7987 37.2987 33.5 35.2 33.5H33V34.5C33 37.5376 30.5376 40 27.5 40H20.5C17.4624 40 15 37.5376 15 34.5V33.5H12.8C10.7013 33.5 9 31.7987 9 29.7V20.3C9 18.2013 10.7013 16.5 12.8 16.5H15V15.5Z"
+                          stroke="#7AE7FF" stroke-width="2.5" />
+                        <path
+                          d="M19.5 21C19.5 18.7909 21.2909 17 23.5 17H24.5C26.7091 17 28.5 18.7909 28.5 21V27C28.5 29.2091 26.7091 31 24.5 31H23.5C21.2909 31 19.5 29.2091 19.5 27V21Z"
+                          stroke="#FFD98C" stroke-width="2.5" />
+                        <path d="M17 18H31" stroke="#EAFBFF" stroke-width="2.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <span
+                      class="rounded-full border border-cyan-100/20 bg-cyan-100/10 px-3 py-1 text-xs font-medium text-cyan-50">Bilibili</span>
+                  </div>
+                  <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-white">B站频道</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-200/76">粉丝数：<span
+                        data-fan-platform="bilibili">加载中...</span></p>
+                  </div>
+                </a>
+
+                <a href="https://v.douyin.com/4Tc5aBTnxho/" target="_blank" rel="noopener noreferrer"
+                  class="glass-social social-card rounded-[24px] border border-white/20 p-5">
+                  <div class="flex items-start justify-between gap-4">
+                    <div class="social-icon">
+                      <svg viewBox="0 0 48 48" class="h-8 w-8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path
+                          d="M27.863 10.5C29.121 15.199 32.447 18.69 37.5 19.394V24.484C34.123 24.539 31.092 23.627 28.401 21.746V30.176C28.401 35.302 24.234 39.5 19.102 39.5C13.97 39.5 9.803 35.302 9.803 30.176C9.803 25.05 13.97 20.853 19.102 20.853C19.913 20.853 20.699 20.958 21.447 21.155V26.334C20.773 26.075 20.035 25.933 19.266 25.933C16.396 25.933 14.07 28.258 14.07 31.126C14.07 33.995 16.396 36.32 19.266 36.32C22.136 36.32 24.462 33.995 24.462 31.126V10.5H27.863Z"
+                          fill="#EAFBFF" />
+                        <path d="M27.863 10.5C29.121 15.199 32.447 18.69 37.5 19.394" stroke="#5FE3FF"
+                          stroke-width="2.2" stroke-linecap="round" />
+                        <path d="M24.462 16.01V31.126C24.462 33.995 22.136 36.32 19.266 36.32" stroke="#FF98CF"
+                          stroke-width="2.2" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <span
+                      class="rounded-full border border-fuchsia-100/20 bg-fuchsia-100/10 px-3 py-1 text-xs font-medium text-fuchsia-50">Douyin</span>
+                  </div>
+                  <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-white">抖音主页</h3>
+                    <p class="mt-2 text-sm leading-6 text-slate-200/76">粉丝数：<span
+                        data-fan-platform="douyin">加载中...</span></p>
+                  </div>
+                </a>
+              </div>
+
+              <div class="glass-social rounded-[24px] border border-white/20 px-5 py-4">
+                <div class="flex items-center justify-between gap-3">
+                  <p class="font-tech text-xs uppercase tracking-[0.34em] text-cyan-100/62">Data Sync</p>
+                  <div class="font-tech text-sm text-amber-100/88" data-fans-updated>最近同步：等待首次更新</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="data/fans.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+
+</html>
