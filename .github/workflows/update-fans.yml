@@ -1,0 +1,32 @@
+name: Update Fans Data
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # 每6小时跑一次
+  workflow_dispatch:        # 允许手动触发
+
+jobs:
+  update:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run PowerShell script
+        shell: pwsh
+        run: |
+          cd web/scripts
+          powershell -ExecutionPolicy Bypass -File .\update-fans.ps1
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+          git add web/data/fans.json
+          git add web/data/fans.js
+
+          git diff --quiet && git diff --staged --quiet || git commit -m "auto: update fans data"
+
+          git push
