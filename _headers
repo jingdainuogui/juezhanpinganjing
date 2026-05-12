@@ -1,0 +1,14 @@
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=604800
+
+/data/*
+  Cache-Control: public, max-age=3600
+
+/ss/thumbs/*
+  Cache-Control: public, max-age=2592000
+
+/ss/*
+  Cache-Control: public, max-age=604800

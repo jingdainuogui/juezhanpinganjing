@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@source "../index.html";
+@source "../portfolio.html";
+@source "../shikigami.html";
+@source "../contact.html";
+@source "./site.js";
