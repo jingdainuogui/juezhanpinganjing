@@ -6,6 +6,8 @@
   "scripts": {
     "build:css": "npx @tailwindcss/cli -i ./assets/tailwind.css -o ./assets/tailwind.generated.css --minify",
     "build:images": "node ./scripts/build-assets.mjs",
+    "update:portfolio": "node ./scripts/update-portfolio.mjs",
+    "cache:portfolio-covers": "node ./scripts/cache-portfolio-covers.mjs",
     "build": "npm run build:css && npm run build:images"
   },
   "repository": {
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/jingdainuogui/juezhanpinganjing#readme",
   "devDependencies": {
+    "@fontsource/orbitron": "^5.3.0",
     "@tailwindcss/cli": "^4.3.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0",

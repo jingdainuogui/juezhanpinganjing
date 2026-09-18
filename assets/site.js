@@ -123,6 +123,7 @@ const Site = (() => {
         type="button"
         class="gallery-trigger group relative block w-full text-left"
         data-lightbox-src="${item.full}"
+        data-lightbox-preview="${item.preview || item.full}"
         data-lightbox-thumb="${item.thumb}"
         data-lightbox-title="式神图鉴 #${index + 1}"
       >
@@ -145,7 +146,7 @@ const Site = (() => {
     if (!gallery || !Array.isArray(window.SHIKIGAMI_IMAGES)) return;
 
     const images = window.SHIKIGAMI_IMAGES;
-    const batchSize = 18;
+    const batchSize = 12;
     let cursor = 0;
     let loading = false;
 
@@ -200,14 +201,15 @@ const Site = (() => {
       const trigger = event.target.closest("[data-lightbox-src]");
       if (trigger) {
         const thumbSrc = trigger.dataset.lightboxThumb || trigger.dataset.lightboxSrc;
+        const previewSrc = trigger.dataset.lightboxPreview || trigger.dataset.lightboxSrc;
         const fullSrc = trigger.dataset.lightboxSrc;
-        image.src = thumbSrc;
+        image.src = previewSrc || thumbSrc;
         image.decoding = "async";
         title.textContent = trigger.dataset.lightboxTitle || "式神图鉴";
         lightbox.classList.add("is-open");
         document.body.style.overflow = "hidden";
 
-        if (fullSrc && fullSrc !== thumbSrc) {
+        if (fullSrc && fullSrc !== previewSrc) {
           const fullImage = new Image();
           fullImage.decoding = "async";
           fullImage.onload = () => {
@@ -228,36 +230,58 @@ const Site = (() => {
     });
   }
 
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>'"]/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "'": "&#39;",
+      "\"": "&quot;"
+    })[char]);
+  }
+
   function createPortfolioCard(item, index) {
+    const platform = item.platform === "douyin" ? "douyin" : "bilibili";
+    const platformLabel = platform === "douyin" ? "抖音" : "哔哩哔哩";
+    const title = escapeHtml(item.title);
+    const cover = escapeHtml(item.cover);
+    const href = escapeHtml(item.link);
     const article = document.createElement("article");
     article.className = "gallery-card portfolio-card p-3";
-    article.innerHTML = `
+    const cardBody = `
+      <div class="gallery-thumb-wrap">
+        <img src="${cover}" alt="${title}" loading="lazy" decoding="async" class="gallery-thumb portfolio-thumb" />
+        <div class="gallery-glow"></div>
+        <div class="portfolio-play">
+          <span class="portfolio-play-button">${platform === "douyin" ? "去抖音主页查看" : "播放"}</span>
+        </div>
+      </div>
+      <div class="relative z-10 px-2 pb-2 pt-4">
+        <div class="mb-3 flex flex-wrap items-center gap-2 text-xs text-slate-200/70">
+          <span class="pill rounded-full px-3 py-1">作品 ${String(index + 1).padStart(2, "0")}</span>
+          <span class="portfolio-platform-badge rounded-full border border-white/12 bg-white/8 px-3 py-1">${platformLabel}</span>
+          <span class="rounded-full border border-white/12 bg-white/8 px-3 py-1">${formatDuration(item.duration)}</span>
+          <span class="rounded-full border border-white/12 bg-white/8 px-3 py-1">${formatDate(item.pubdate)}</span>
+        </div>
+        <h3 class="line-clamp-2 text-lg font-semibold leading-7 text-white">${title}</h3>
+        <div class="mt-4 flex items-center justify-between gap-4 text-sm text-slate-200/72">
+          <span>播放 ${formatNumber(item.view)}</span>
+          <span>点赞 ${formatNumber(item.like)}</span>
+        </div>
+      </div>`;
+
+    article.innerHTML = platform === "douyin" ? `
+      <a class="group block w-full text-left" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="在抖音主页查看：${title}">
+        ${cardBody}
+      </a>` : `
       <button
         type="button"
         class="group block w-full text-left"
         data-video-bvid="${item.bvid}"
         data-video-cid="${item.cid}"
-        data-video-title="${item.title}"
+        data-video-title="${title}"
       >
-        <div class="gallery-thumb-wrap">
-          <img src="${item.cover}" alt="${item.title}" loading="lazy" decoding="async" class="gallery-thumb portfolio-thumb" />
-          <div class="gallery-glow"></div>
-          <div class="portfolio-play">
-            <span class="portfolio-play-button">播放</span>
-          </div>
-        </div>
-        <div class="relative z-10 px-2 pb-2 pt-4">
-          <div class="mb-3 flex flex-wrap items-center gap-2 text-xs text-slate-200/70">
-            <span class="pill rounded-full px-3 py-1">作品 ${String(index + 1).padStart(2, "0")}</span>
-            <span class="rounded-full border border-white/12 bg-white/8 px-3 py-1">${formatDuration(item.duration)}</span>
-            <span class="rounded-full border border-white/12 bg-white/8 px-3 py-1">${formatDate(item.pubdate)}</span>
-          </div>
-          <h3 class="line-clamp-2 text-lg font-semibold leading-7 text-white">${item.title}</h3>
-          <div class="mt-4 flex items-center justify-between gap-4 text-sm text-slate-200/72">
-            <span>播放 ${formatNumber(item.view)}</span>
-            <span>点赞 ${formatNumber(item.like)}</span>
-          </div>
-        </div>
+        ${cardBody}
       </button>
     `;
     return article;
@@ -266,19 +290,31 @@ const Site = (() => {
   function initPortfolio() {
     const grid = document.getElementById("portfolioGrid");
     const sentinel = document.getElementById("portfolioSentinel");
+    const syncStatus = document.getElementById("portfolioSyncStatus");
     if (!grid || !Array.isArray(window.PORTFOLIO_ITEMS)) return;
 
-    const items = window.PORTFOLIO_ITEMS;
+    const items = window.PORTFOLIO_ITEMS.map((item) => ({
+      ...item,
+      platform: item.platform === "douyin" ? "douyin" : "bilibili"
+    }));
     const batchSize = 8;
     let cursor = 0;
     let loading = false;
+    let activePlatform = "all";
+    let visibleItems = items;
+
+    if (syncStatus && window.PORTFOLIO_UPDATED_AT) {
+      syncStatus.textContent = window.PORTFOLIO_UPDATED_AT.startsWith("暂未")
+        ? window.PORTFOLIO_UPDATED_AT
+        : `最近同步：${window.PORTFOLIO_UPDATED_AT}`;
+    }
 
     const renderBatch = () => {
       if (loading) return;
       loading = true;
 
       const fragment = document.createDocumentFragment();
-      const nextItems = items.slice(cursor, cursor + batchSize);
+      const nextItems = visibleItems.slice(cursor, cursor + batchSize);
       nextItems.forEach((item, idx) => {
         fragment.appendChild(createPortfolioCard(item, cursor + idx));
       });
@@ -286,17 +322,41 @@ const Site = (() => {
       cursor += nextItems.length;
       loading = false;
 
-      if (cursor >= items.length && sentinel) {
-        sentinel.textContent = "作品集已经全部展开，继续向下就是你的完整轨迹。";
+      if (cursor >= visibleItems.length && sentinel) {
+        sentinel.textContent = visibleItems.length
+          ? "作品集已经全部展开，继续向下就是你的完整轨迹。"
+          : "暂时没有找到带有「决战！平安京」标签的公开作品。";
       }
     };
+
+    const resetView = (platform) => {
+      activePlatform = platform;
+      visibleItems = platform === "all" ? items : items.filter((item) => item.platform === platform);
+      cursor = 0;
+      grid.innerHTML = "";
+      if (sentinel) sentinel.textContent = "正在展开更多作品...";
+      renderBatch();
+    };
+
+    document.querySelectorAll("[data-portfolio-tab]").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const platform = tab.dataset.portfolioTab;
+        if (!platform || platform === activePlatform) return;
+        document.querySelectorAll("[data-portfolio-tab]").forEach((node) => {
+          const isActive = node.dataset.portfolioTab === platform;
+          node.classList.toggle("is-active", isActive);
+          node.setAttribute("aria-selected", String(isActive));
+        });
+        resetView(platform);
+      });
+    });
 
     renderBatch();
 
     if (sentinel) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && cursor < items.length) {
+          if (entry.isIntersecting && cursor < visibleItems.length) {
             renderBatch();
           }
         });

@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>作品集</title>
-  <link rel="preconnect" href="https://fonts.font.im" crossorigin />
-  <link href="https://fonts.font.im/css2?family=Orbitron:wght@500;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/tailwind.generated.css" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
@@ -42,10 +40,16 @@
               </div>
               <div class="glass-panel rounded-[24px] px-5 py-4 text-sm text-slate-200/76">
                 <div class="font-tech text-xs uppercase tracking-[0.3em] text-cyan-100/62">Video Mode</div>
-                <div class="mt-2">对局录像 / 击杀集锦 / 娱乐搞怪</div>
+                <div class="mt-2">B 站 / 抖音 · 最近发布的 50 条作品</div>
               </div>
             </div>
 
+            <div class="portfolio-toolbar" role="tablist" aria-label="作品平台筛选">
+              <button type="button" class="portfolio-tab is-active" data-portfolio-tab="all" role="tab" aria-selected="true">全部作品</button>
+              <button type="button" class="portfolio-tab" data-portfolio-tab="bilibili" role="tab" aria-selected="false">哔哩哔哩</button>
+              <button type="button" class="portfolio-tab" data-portfolio-tab="douyin" role="tab" aria-selected="false">抖音</button>
+              <p id="portfolioSyncStatus" class="portfolio-sync-status" aria-live="polite"></p>
+            </div>
             <div id="portfolioGrid" class="portfolio-grid"></div>
             <div id="portfolioSentinel" class="mx-auto mt-4 rounded-full border border-white/12 bg-white/6 px-5 py-3 text-center text-sm text-slate-200/70">
               正在展开更多作品...
@@ -84,6 +88,7 @@
   </div>
 
   <script src="data/portfolio.js"></script>
+  <script src="data/douyin-import.js"></script>
   <script src="assets/site.js"></script>
 </body>
 </html>

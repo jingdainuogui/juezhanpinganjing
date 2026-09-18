@@ -1,4 +1,4 @@
-name: Update Fans Data
+name: Update Creator Data
 
 on:
   schedule:
@@ -14,11 +14,17 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Run PowerShell script
+      - name: Update fan counts
         shell: pwsh
         run: |
           cd scripts
           powershell -ExecutionPolicy Bypass -File .\update-fans.ps1
+
+      - name: Update tagged works
+        run: node scripts/update-portfolio.mjs
+
+      - name: Cache portfolio covers
+        run: node scripts/cache-portfolio-covers.mjs
 
       - name: Commit and push if changed
         run: |
@@ -27,6 +33,9 @@ jobs:
 
           git add data/fans.json
           git add data/fans.js
+          git add data/portfolio.js
+          git add data/douyin-import.js
+          git add assets/portfolio-covers
 
           git diff --quiet && git diff --staged --quiet || git commit -m "auto: update fans data"
 

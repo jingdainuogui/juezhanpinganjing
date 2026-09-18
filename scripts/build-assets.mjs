@@ -5,12 +5,15 @@ import sharp from "sharp";
 const rootDir = path.resolve(import.meta.dirname, "..");
 const galleryDir = path.join(rootDir, "ss");
 const thumbDir = path.join(galleryDir, "thumbs");
+const previewDir = path.join(galleryDir, "previews");
 const galleryManifestPath = path.join(rootDir, "data", "gallery.js");
 const backgroundInputPath = path.join(rootDir, "bj.png");
 const backgroundOutputPath = path.join(rootDir, "assets", "bj-optimized.webp");
 
 const THUMB_WIDTH = 400;
 const THUMB_QUALITY = 76;
+const PREVIEW_WIDTH = 1600;
+const PREVIEW_QUALITY = 82;
 const BACKGROUND_WIDTH = 1920;
 const BACKGROUND_QUALITY = 82;
 
@@ -20,6 +23,7 @@ async function ensureDir(dirPath) {
 
 async function buildGalleryThumbs() {
   await ensureDir(thumbDir);
+  await ensureDir(previewDir);
 
   const entries = await fs.readdir(galleryDir, { withFileTypes: true });
   const files = entries
@@ -35,6 +39,7 @@ async function buildGalleryThumbs() {
     const parsed = path.parse(name);
     const thumbFileName = `${parsed.name}.webp`;
     const thumbPath = path.join(thumbDir, thumbFileName);
+    const previewPath = path.join(previewDir, thumbFileName);
 
     const image = sharp(sourcePath, { failOn: "none" }).rotate();
     const metadata = await image.metadata();
@@ -44,9 +49,18 @@ async function buildGalleryThumbs() {
       .webp({ quality: THUMB_QUALITY })
       .toFile(thumbPath);
 
+    if ((metadata.width ?? 0) > PREVIEW_WIDTH) {
+      await sharp(sourcePath, { failOn: "none" })
+        .rotate()
+        .resize({ width: PREVIEW_WIDTH, withoutEnlargement: true })
+        .webp({ quality: PREVIEW_QUALITY })
+        .toFile(previewPath);
+    }
+
     manifest.push({
       full: `ss/${name}`,
       thumb: `ss/thumbs/${thumbFileName}`,
+      preview: (metadata.width ?? 0) > PREVIEW_WIDTH ? `ss/previews/${thumbFileName}` : `ss/${name}`,
       width: metadata.width ?? null,
       height: metadata.height ?? null,
     });
