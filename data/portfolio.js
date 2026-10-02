@@ -1,52 +1,64 @@
-window.PORTFOLIO_UPDATED_AT = "暂未同步（展示本地快照）";
-window.PORTFOLIO_SYNC_STATUS = "部分平台同步失败：Bilibili: Bilibili archive API returned -799 | Douyin: Unexpected end of JSON input";
+window.PORTFOLIO_UPDATED_AT = "2026/10/2 13:02:29";
+window.PORTFOLIO_SYNC_STATUS = "部分平台同步失败：Douyin: Unexpected end of JSON input";
 window.PORTFOLIO_ITEMS = [
   {
     "platform": "bilibili",
-    "bvid": "BV1FLwTzVE7w",
-    "cid": 25980575039,
-    "title": "【从此阴尘各悄然】视频加载中，速速查收惊喜！",
-    "cover": "assets/portfolio-covers/32c5f65a08b919c3.jpg",
-    "duration": 1521,
-    "view": 24,
-    "like": 1,
-    "pubdate": 1773567885,
-    "link": "https://www.bilibili.com/video/BV1FLwTzVE7w/"
+    "bvid": "BV14M7B6AEkC",
+    "cid": 39412042073,
+    "title": "【从此阴尘各悄然】最新视频来袭，快来看看吧！",
+    "cover": "assets/portfolio-covers/da23953c260bb9d3.jpg",
+    "duration": 898,
+    "view": 103,
+    "like": 10,
+    "pubdate": 1782436852,
+    "link": "https://www.bilibili.com/video/BV14M7B6AEkC/"
   },
   {
     "platform": "bilibili",
-    "bvid": "BV1AgwTz2EjC",
-    "cid": 36715888800,
-    "title": "惜败",
-    "cover": "assets/portfolio-covers/468a1d06dba2b9ed.jpg",
-    "duration": 1491,
-    "view": 22,
+    "bvid": "BV1C4qSBBEKy",
+    "cid": 34887500243,
+    "title": "直播回放_2025-12-20_21-01-33",
+    "cover": "assets/portfolio-covers/7cf16024d7df3a1d.jpg",
+    "duration": 7213,
+    "view": 25,
     "like": 0,
-    "pubdate": 1773567549,
-    "link": "https://www.bilibili.com/video/BV1AgwTz2EjC/"
+    "pubdate": 1766320359,
+    "link": "https://www.bilibili.com/video/BV1C4qSBBEKy/"
   },
   {
     "platform": "bilibili",
-    "bvid": "BV1Z1BUB8EjN",
-    "cid": 34963525199,
-    "title": "直播回放_2025-12-24_22-00-57",
-    "cover": "assets/portfolio-covers/cc30ce5ee962e86d.jpg",
-    "duration": 4132,
-    "view": 96,
+    "bvid": "BV1S6HkzrEJ6",
+    "cid": 32329107428,
+    "title": "9月12日",
+    "cover": "assets/portfolio-covers/ce14bdd1bb3c6b6b.jpg",
+    "duration": 205,
+    "view": 98,
     "like": 3,
-    "pubdate": 1766632186,
-    "link": "https://www.bilibili.com/video/BV1Z1BUB8EjN/"
+    "pubdate": 1757660043,
+    "link": "https://www.bilibili.com/video/BV1S6HkzrEJ6/"
   },
   {
     "platform": "bilibili",
-    "bvid": "BV1qgFdeCE8Y",
-    "cid": 28169470841,
-    "title": "阿修罗配曼波",
-    "cover": "assets/portfolio-covers/2a0b6c2bd650bb54.jpg",
-    "duration": 187,
-    "view": 104,
-    "like": 1,
-    "pubdate": 1738374582,
-    "link": "https://www.bilibili.com/video/BV1qgFdeCE8Y/"
+    "bvid": "BV1YkeqezEGV",
+    "cid": 500001627722908,
+    "title": "中单很强的话应该怎么样躺。",
+    "cover": "assets/portfolio-covers/7a1e149a3fff43a7.jpg",
+    "duration": 231,
+    "view": 697,
+    "like": 16,
+    "pubdate": 1721964896,
+    "link": "https://www.bilibili.com/video/BV1YkeqezEGV/"
+  },
+  {
+    "platform": "bilibili",
+    "bvid": "BV1pEaeerEtv",
+    "cid": 500001609708971,
+    "title": "鬼切还是有些吃力",
+    "cover": "assets/portfolio-covers/e9a1f39e49ba48d6.jpg",
+    "duration": 227,
+    "view": 191,
+    "like": 4,
+    "pubdate": 1720506233,
+    "link": "https://www.bilibili.com/video/BV1pEaeerEtv/"
   }
 ];
