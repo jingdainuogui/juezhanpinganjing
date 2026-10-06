@@ -1,5 +1,5 @@
-window.PORTFOLIO_UPDATED_AT = "2026/10/6 07:55:31";
-window.PORTFOLIO_SYNC_STATUS = "部分平台同步失败：Douyin: Unexpected end of JSON input";
+window.PORTFOLIO_UPDATED_AT = "暂未同步（展示本地快照）";
+window.PORTFOLIO_SYNC_STATUS = "部分平台同步失败：Bilibili: Bilibili archive API returned -799 | Douyin: Unexpected end of JSON input";
 window.PORTFOLIO_ITEMS = [
   {
     "platform": "bilibili",
