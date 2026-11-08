@@ -1,16 +1,16 @@
-window.PORTFOLIO_UPDATED_AT = "暂未同步（展示本地快照）";
-window.PORTFOLIO_SYNC_STATUS = "部分平台同步失败：Bilibili: Bilibili archive API returned -799 | Douyin: Unexpected end of JSON input";
+window.PORTFOLIO_UPDATED_AT = "2026/11/8 13:29:00";
+window.PORTFOLIO_SYNC_STATUS = "部分平台同步失败：Douyin: Unexpected end of JSON input";
 window.PORTFOLIO_ITEMS = [
   {
     "platform": "bilibili",
-    "bvid": "BV15Gv6eDEEp",
-    "cid": 500001632049402,
-    "title": "很怪，经济差2000怎么会打不动",
-    "cover": "assets/portfolio-covers/f9d66530379917c6.jpg",
-    "duration": 173,
-    "view": 6154,
-    "like": 70,
-    "pubdate": 1722308161,
-    "link": "https://www.bilibili.com/video/BV15Gv6eDEEp/"
+    "bvid": "BV1YkeqezEGV",
+    "cid": 500001627722908,
+    "title": "中单很强的话应该怎么样躺。",
+    "cover": "assets/portfolio-covers/7a1e149a3fff43a7.jpg",
+    "duration": 231,
+    "view": 697,
+    "like": 16,
+    "pubdate": 1721964896,
+    "link": "https://www.bilibili.com/video/BV1YkeqezEGV/"
   }
 ];
