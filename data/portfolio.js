@@ -1,5 +1,5 @@
 window.PORTFOLIO_UPDATED_AT = "暂未同步（展示本地快照）";
-window.PORTFOLIO_SYNC_STATUS = "部分平台同步失败：Bilibili: HTTP 412: https://api.bilibili.com/x/space/arc/search?mid=689060205&pn=1&ps=50&order=pubdate | Douyin: Unexpected end of JSON input";
+window.PORTFOLIO_SYNC_STATUS = "部分平台同步失败：Bilibili: Bilibili archive API returned -799 | Douyin: Unexpected end of JSON input";
 window.PORTFOLIO_ITEMS = [
   {
     "platform": "bilibili",
